@@ -1,0 +1,9 @@
+// Single Line Comment
+[
+	// Blah
+	true,
+	// false,
+	null,
+	"string" // Nothing
+	// Empty
+]

@@ -1,0 +1,17 @@
+/*
+
+	Multi Line Comment
+
+*/
+{
+	/* Start Comment */
+	"key": /* 
+		Inner Multi Line Comment
+	*/
+	"value",
+	/*
+		Key Break
+	*/
+	"key2": /* Same Line */ true
+	/* End COmment */
+}

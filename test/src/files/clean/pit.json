@@ -1,0 +1,32 @@
+/*
+this file contains as many different types of data as possible
+*/
+[
+	true,
+	false,
+	// false,
+	null,
+	10,
+	10.0,
+	10.2E1,
+	10.2e-1,
+	-10.5e192,
+	-10.5e+192,
+	[
+		true,
+		false,
+		// false,
+		null,
+		10,
+		10.0,
+		10.2E1,
+		10.2e-1,
+		-10.5e192,
+		-10.5e+192
+	],
+	{
+		"test": true,
+		"a": false,
+		"b": null
+	}
+]
