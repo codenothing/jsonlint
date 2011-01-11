@@ -30,11 +30,23 @@ module.exports = [
 	"{\"test\":101.101e+101}",
 	"{\"test\":101.101E+101}",
 
-	// String Values (more complex in file sheets)
+	// String Values
+	"[\"\"]",
 	"{\"test\":\"good\"}",
 	"{\"test\":\"s p a c	i	n	g	\"}",
 	"{\"test\":\"'single quote'\"}",
 	"{\"test\":\"\\\"double quote\\\"\"}",
+
+	// Valid Reverse solidus in strings
+	"[\"\\\"\"]",
+	"[\"\\\\\"]",
+	"[\"\\/\"]",
+	"[\"\\b\"]",
+	"[\"\\f\"]",
+	"[\"\\n\"]",
+	"[\"\\r\"]",
+	"[\"\\t\"]",
+	"[\"\\u1234\"]",
 
 	// Array Value
 	"{\"test\": [ true ] }",

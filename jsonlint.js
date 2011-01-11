@@ -8,6 +8,7 @@
 var rnumber = /[0-9]/,
 	rnewline = /(\r\n|\r|\n)/,
 	rwhitespace = /(\s|\t)/,
+	rvalidsolidus = /\\("|\\|\/|b|f|n|r|t|u[0-9]{4})/,
 	rE = /^(\-|\+)?[0-9]/;
 
 
@@ -290,13 +291,18 @@ JSONLint.prototype = {
 
 	// String statement
 	string: function(){
-		for ( var found = false; ++this.i < this.length; ) {
+		for ( var found = false, m; ++this.i < this.length; ) {
 			this.c = this.json[ this.i ];
 			this.character++;
 
 			if ( this.c == "\\" ) {
-				this.i++;
-				this.character++;
+				if ( ( m = rvalidsolidus.exec( this.json.substr( this.i ) ) ) && m.index === 0 ) {
+					this.i += m[ 1 ].length;
+					this.character += m[ 1 ].length;
+				}
+				else {
+					throw "Invalid Reverse Solidus '\\' declaration.";
+				}
 			}
 			else if ( rnewline.exec( this.c ) ) {
 				this.line++;

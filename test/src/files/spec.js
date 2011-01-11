@@ -19,5 +19,10 @@ module.exports = {
 	'nomulticomment.json': {
 		line: 1,
 		character: 1
+	},
+
+	'string.json': {
+		line: 2,
+		character: 3
 	}
 };

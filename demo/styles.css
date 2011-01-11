@@ -1,0 +1,47 @@
+/**
+ * JSONLint [VERSION]
+ * [DATE]
+ * Corey Hart @ http://www.codenothing.com
+ */
+body {
+	font-size: 12pt;
+}
+
+#content {
+	width: 950px;
+	margin: 20px auto;
+}
+
+.linedwrap.success {
+	border: 2px solid green;
+}
+
+.linedwrap.error {
+	border: 2px solid red;
+}
+
+textarea {
+	width: 950px;
+	height: 400px;
+	font-size: 10pt;
+}
+
+button {
+	padding: 5px 9px;
+	margin: 5px 0;
+	border: 1px solid #e1e1e1;
+	background: #f5f5f5;
+}
+
+#results {
+	padding: 10px;
+	margin: 10px 0;
+}
+
+#results.success {
+	background: #c9ffc7;
+}
+
+#results.error {
+	background: #ffc7c7;
+}

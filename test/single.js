@@ -5,7 +5,7 @@
  */
 
 // Test String (Editable)
-var test = "{\"test\":1.0e1}";
+var test = '{"test":"\\"double quote\\""}';
 
 
 
@@ -18,6 +18,7 @@ try {
 	process.exit( 0 );
 } catch ( e ) {
 	color.puts.red( "Failed Single Test" );
+	e.json = test;
 	console.log( e );
 	process.exit( 1 );
 }
