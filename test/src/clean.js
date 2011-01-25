@@ -11,6 +11,7 @@ module.exports = [
 	"[[]]",
 	"{\"test\":[]}",
 	"{\"test\":{}}",
+	"{\"test\": [ ], \"test2\": [ ] }",
 
 	// Null Value
 	"{\"test\":null}",

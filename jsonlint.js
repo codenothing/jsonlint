@@ -121,8 +121,9 @@ JSONLint.prototype = {
 	// Array Block
 	array: function(){
 		// Keep reference of current endblock
-		var _endblock = this.endblock, ended = false;
+		var _endblock = this.endblock, _commabreak = this.commabreak, ended = false;
 		this.endblock = ']';
+		this.commabreak = false;
 		while ( ( ended = this.value() ) !== true && this.i < this.length ) {
 			// Do nothing, just wait for array values to finish
 		}
@@ -133,13 +134,15 @@ JSONLint.prototype = {
 
 		// Reset previous endblock
 		this.endblock = _endblock;
+		this.commabreak = _commabreak;
 	},
 
 	// Object Block
 	object: function(){
 		// Keep reference of current endblock
-		var _endblock = this.endblock, found = false, peek = '', empty = true;
+		var _endblock = this.endblock, _commabreak = this.commabreak, found = false, peek = '', empty = true;
 		this.endblock = '}';
+		this.commabreak = false;
 		for ( ; ++this.i < this.length; ) {
 			this.c = this.json[ this.i ];
 			this.character++;
@@ -168,12 +171,14 @@ JSONLint.prototype = {
 				if ( this.key() === true ) {
 					// Reset old endblock
 					this.endblock = _endblock;
+					this.commabreak = _commabreak;
 					found = true;
 					break;
 				}
 			}
 			else if ( empty && this.c == '}' ) {
 				this.endblock = _endblock;
+				this.commabreak = _commabreak;
 				found = true;
 				break;
 			}
