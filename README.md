@@ -3,12 +3,12 @@ JSONLint is a JSON Linter that allows for comments in your JSON Files.
 Usage
 -----
 
-	try {
-		JSONLint( json );
-	} catch ( e ) {
+	var lint = JSONLint( json );
+	if ( lint.error ) {
 		// Do something with the error
-		e.line; // Line number in json file where error was found
-		e.character; // Character of line in json file where error was found
+		lint.error // Error Message
+		lint.line; // Line number in json file where error was found
+		lint.character; // Character of line in json file where error was found
 	}
 
 JSONLint takes two arguemnts, and throws an error if found.
