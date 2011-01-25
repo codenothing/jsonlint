@@ -39,11 +39,10 @@ function JSONLint( json, options ) {
 	try {
 		this.render();
 	} catch ( e ) {
-		e = new Error( e );
-		e.name = 'JSONLint';
-		e.character = this.character;
-		e.line = this.line;
-		throw e;
+		if ( typeof e != 'string' ) {
+			throw e;
+		}
+		this.error = e;
 	}
 }
 

@@ -10,15 +10,14 @@ var test = '{"test":"\\"double quote\\""}';
 
 
 // Test Env (Don't Touch)
-var JSONLint = require('../jsonlint'), color = require('./src/color');
+var lint = require('../jsonlint')( test ), color = require('./src/color');
 
-try {
-	JSONLint( test );
+if ( lint.error ) {
+	color.puts.red( "Failed Single Test" );
+	console.log( lint );
+	process.exit( 1 );
+}
+else {
 	color.puts.green( "Single Test Passed" );
 	process.exit( 0 );
-} catch ( e ) {
-	color.puts.red( "Failed Single Test" );
-	e.json = test;
-	console.log( e );
-	process.exit( 1 );
 }

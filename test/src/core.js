@@ -106,35 +106,38 @@ Unit.prototype = {
 	// Clean marking
 	clean: function( name, test, options ) {
 		this.count++;
-		try {
-			JSONLint( test, options );
-			this.passes++;
-			Color.puts.green( "Passed " + name );
-		} catch ( e ) {
+		var lint = JSONLint( test, options );
+
+		if ( lint.error ) {
 			this.errors++;
 			Color.puts.red( "Failed " + name );
-			e.json = test;
-			console.log( e );
+			console.log( lint );
+		}
+		else {
+			this.passes++;
+			Color.puts.green( "Passed " + name );
 		}
 	},
 
 	// Invalid marking
 	invalid: function( name, test, line, character, options ) {
 		this.count++;
-		try {
-			JSONLint( test, options );
-			this.errors++;
-			Color.puts.red( "Failed " + name + ", didn't throw an error" );
-		} catch ( e ) {
-			if ( e.line === line && e.character === character ) {
+		var lint = JSONLint( test, options );
+
+		if ( lint.error ) {
+			if ( lint.line === line && lint.character === character ) {
 				this.passes++;
 				Color.puts.green( "Passed " + name + ", error thrown matches expectations." );
 			}
 			else {
 				this.errors++;
 				Color.puts.red( "Failed " + name + ", expecting error on line " + line + ", character " + character );
-				console.log( e );
+				console.log( lint );
 			}
+		}
+		else {
+			this.errors++;
+			Color.puts.red( "Failed " + name + ", didn't throw an error" );
 		}
 	},
 
