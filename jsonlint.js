@@ -3,7 +3,7 @@
  * [DATE]
  * Corey Hart @ http://www.codenothing.com
  */
-(function( glob ) {
+(function( glob, undefined ) {
 
 var rnumber = /[0-9]/,
 	rnewline = /(\r\n|\r|\n)/,

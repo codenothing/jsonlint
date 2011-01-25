@@ -1,0 +1,6 @@
+# nothing good can come from the git directory
+.git/
+
+# Demo includes
+demo/jquery-linedtextarea.js
+demo/jquery-1.4.2.js
