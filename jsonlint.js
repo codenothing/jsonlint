@@ -437,7 +437,7 @@ JSONLint.prototype = {
 
 	// Expose line of the error
 	setEvidence: function(){
-		this.evidence = this.json.split( revidence )[ this.line - 1 ] || '';
+		this.evidence = ( this.json.split( revidence )[ this.line - 1 ] || '' ).trim();
 
 		// Trim long lines
 		if ( this.evidence.length > 80 ) {
