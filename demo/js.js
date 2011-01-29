@@ -23,6 +23,7 @@ jQuery(function(){
 			wrapper.addClass('error');
 			results.addClass('error').html([
 				lint.error + "<br>" +
+				"<b>Evidence:</b> " + lint.evidence + "<br>" +
 				"<b>Line:</b> " + lint.line + "<br>" +
 				"<b>Character:</b> " + lint.character
 			].join(''));

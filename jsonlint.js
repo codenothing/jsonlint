@@ -7,6 +7,7 @@
 
 var rnumber = /[0-9]/,
 	rnewline = /(\r\n|\r|\n)/,
+	revidence = /\r\n|\r|\n/,
 	rwhitespace = /(\s|\t)/,
 	rvalidsolidus = /\\("|\\|\/|b|f|n|r|t|u[0-9]{4})/,
 	rE = /^(\-|\+)?[0-9]/;
@@ -43,6 +44,7 @@ function JSONLint( json, options ) {
 			throw e;
 		}
 		this.error = e;
+		this.setEvidence();
 	}
 }
 
@@ -430,6 +432,16 @@ JSONLint.prototype = {
 			else {
 				throw "Unknown Character '" + this.c + "', expecting a comma or a closing '" + this.endblock + "'";
 			}
+		}
+	},
+
+	// Expose line of the error
+	setEvidence: function(){
+		this.evidence = this.json.split( revidence )[ this.line - 1 ] || '';
+
+		// Trim long lines
+		if ( this.evidence.length > 80 ) {
+			this.evidence = this.evidence.substr( 0, 77 ) + '...';
 		}
 	}
 };
