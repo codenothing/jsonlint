@@ -4,6 +4,20 @@
  * Corey Hart @ http://www.codenothing.com
  */
 module.exports = {
+	// JSON cannot be empty
+	"Empty Test": {
+		json: "",
+		character: 0,
+		line: 1
+	},
+
+	// There can only be one object/array in a json string
+	"Multi Object": {
+		json: "{}[]",
+		character: 3,
+		line: 1
+	},
+
 	// Invalid Null Value
 	"Capital NULL": {
 		json: "{\"test\":NULL}",

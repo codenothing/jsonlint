@@ -50,7 +50,7 @@ JSONLint.prototype = {
 
 	// Rendering Start
 	render: function(){
-		for ( var peek = ''; ++this.i < this.length; ) {
+		for ( var peek = '', content = false; ++this.i < this.length; ) {
 			this.c = this.json[ this.i ];
 			this.character++;
 
@@ -73,15 +73,25 @@ JSONLint.prototype = {
 			else if ( rwhitespace.exec( this.c ) ) {
 				continue;
 			}
+			else if ( content ) {
+				throw "Unknown character '" + this.c + "', expecting end of file.";
+			}
 			else if ( this.c == '[' ) {
+				content = true;
 				this.array();
 			}
 			else if ( this.c == '{' ) {
+				content = true;
 				this.object();
 			}
 			else {
 				throw "Unknown character '" + this.c + "', expecting opening block '{' or '[', or maybe a comment";
 			}
+		}
+
+		// Check for pure whitespace
+		if ( ! content ) {
+			throw "Invalid JSON, no content.";
 		}
 	},
 

@@ -24,5 +24,15 @@ module.exports = {
 	'string.json': {
 		line: 2,
 		character: 3
+	},
+
+	'empty.json': {
+		line: 1,
+		character: 0
+	},
+
+	'multi-object.json': {
+		line: 5,
+		character: 1
 	}
 };
