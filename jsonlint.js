@@ -13,6 +13,7 @@ var rnumber = /[0-9]/,
 	rE = /^(\-|\+)?[0-9]/;
 
 
+// Leeeeeeerrrrroooyy Jennkkkiiinnnss
 function JSONLint( json, options ) {
 	if ( ! ( this instanceof JSONLint ) ) {
 		return new JSONLint( json, options );
@@ -48,6 +49,14 @@ function JSONLint( json, options ) {
 	}
 }
 
+
+// Meta (Please change contact info for republishing with changes)
+JSONLint.contact = "Corey Hart (corey@codenothing.com)";
+JSONLint.version = '[VERSION]';
+JSONLint.date = '[DATE]'
+
+
+// Methods
 JSONLint.prototype = {
 
 	// Rendering Start
