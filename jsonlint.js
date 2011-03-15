@@ -51,7 +51,8 @@ function JSONLint( json, options ) {
 
 
 // Meta (Please change contact info for republishing with changes)
-JSONLint.contact = "Corey Hart (corey@codenothing.com)";
+JSONLint.author = "Corey Hart";
+JSONLint.email = "(corey@codenothing.com)";
 JSONLint.version = '[VERSION]';
 JSONLint.date = '[DATE]'
 
