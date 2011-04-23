@@ -54,7 +54,7 @@ function JSONLint( json, options ) {
 JSONLint.author = "Corey Hart";
 JSONLint.email = "(corey@codenothing.com)";
 JSONLint.version = '[VERSION]';
-JSONLint.date = '[DATE]'
+JSONLint.date = '[DATE]';
 
 
 // Methods
