@@ -35,6 +35,7 @@ function JSONLint( json, options ) {
 	this.length = this.json.length;
 	this.line = 1;
 	this.character = 0;
+	this._evidence = this.json.split( revidence );
 	this.endblock = '';
 	this.commabreak = false;
 
@@ -51,8 +52,7 @@ function JSONLint( json, options ) {
 
 
 // Meta (Please change contact info for republishing with changes)
-JSONLint.author = "Corey Hart";
-JSONLint.email = "(corey@codenothing.com)";
+JSONLint.contact = "Corey Hart (corey@codenothing.com)";
 JSONLint.version = '[VERSION]';
 JSONLint.date = '[DATE]';
 
@@ -447,12 +447,27 @@ JSONLint.prototype = {
 
 	// Expose line of the error
 	setEvidence: function(){
-		this.evidence = ( this.json.split( revidence )[ this.line - 1 ] || '' ).trim();
+		var start = this.line - 5, end = start + 7, evidence = '';
 
-		// Trim long lines
-		if ( this.evidence.length > 80 ) {
-			this.evidence = this.evidence.substr( 0, 77 ) + '...';
+		// Min start
+		if ( start < 0 ) {
+			start = 0;
+			end = 7;
 		}
+
+		// Max end
+		if ( end >= this._evidence.length ) {
+			end = this._evidence.length;
+		}
+
+		// Evidence display
+		for ( ; start < end; start++ ) {
+			evidence += ( start === ( this.line - 1 ) ? "-> " : "   " ) + start + '| ' +
+				this._evidence[ start ] + "\n";
+		}
+
+		// Set the evidence display
+		this.evidence = evidence;
 	}
 };
 
@@ -462,8 +477,11 @@ if ( typeof Nodelint != 'undefined' ) {
 	Nodelint.Linters.add({
 		name: 'jsonlint',
 		display: 'JSONLint',
-		build: __filename,
 		linter: JSONLint,
+		version: JSONLint.version,
+		date: JSONLint.date,
+		contact: JSONLint.contact,
+		build: __filename,
 		match: rjson = /\.json$/i
 	}, function( JSONLint, file, content, options ) {
 		// Run JSON file through linter
