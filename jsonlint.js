@@ -447,12 +447,12 @@ JSONLint.prototype = {
 
 	// Expose line of the error
 	setEvidence: function(){
-		var start = this.line - 5, end = start + 7, evidence = '';
+		var start = this.line - 5, end = start + 8, evidence = '';
 
 		// Min start
 		if ( start < 0 ) {
 			start = 0;
-			end = 7;
+			end = 8;
 		}
 
 		// Max end
@@ -462,7 +462,8 @@ JSONLint.prototype = {
 
 		// Evidence display
 		for ( ; start < end; start++ ) {
-			evidence += ( start === ( this.line - 1 ) ? "-> " : "   " ) + start + '| ' +
+			evidence += ( start === ( this.line - 1 ) ? "-> " : "   " ) +
+				( start + 1 ) + '| ' +
 				this._evidence[ start ] + "\n";
 		}
 
