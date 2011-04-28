@@ -457,10 +457,27 @@ JSONLint.prototype = {
 };
 
 
-// Expose to CommonJS or browser window
-if ( typeof exports == 'object' && typeof module == 'object' ) {
+// Expose to Nodelint system if possible
+if ( typeof Nodelint != 'undefined' ) {
+	Nodelint.Linters.add({
+		name: 'jsonlint',
+		display: 'JSONLint',
+		build: __filename,
+		linter: JSONLint,
+		match: rjson = /\.json$/i
+	}, function( JSONLint, file, content, options ) {
+		// Run JSON file through linter
+		result = JSONLint( content, options );
+
+		// JSONLint only stops on every error, so create a single entry array from it
+		return result.error ? [ result ] : [];
+	});
+}
+// Check for nodejs module system
+else if ( typeof exports == 'object' && typeof module == 'object' ) {
 	module.exports = JSONLint;
 }
+// In a browser
 else {
 	glob.JSONLint = JSONLint;
 }
