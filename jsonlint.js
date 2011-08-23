@@ -476,17 +476,22 @@ JSONLint.prototype = {
 // Expose to Nodelint system if possible
 if ( typeof Nodelint != 'undefined' ) {
 	Nodelint.Linters.add({
+
+		// Config
 		name: 'jsonlint',
 		display: 'JSONLint',
 		linter: JSONLint,
+		build: __filename,
+		match: /\.json$/i,
+
+		// Meta
 		version: JSONLint.version,
 		date: JSONLint.date,
-		contact: JSONLint.contact,
-		build: __filename,
-		match: rjson = /\.json$/i
+		contact: JSONLint.contact
+
 	}, function( JSONLint, file, content, options ) {
 		// Run JSON file through linter
-		result = JSONLint( content, options );
+		var result = JSONLint( content, options );
 
 		// JSONLint only stops on every error, so create a single entry array from it
 		return result.error ? [ result ] : [];
