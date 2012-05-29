@@ -1,8 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
 module.exports = {
 	// JSON cannot be empty
 	"Empty Test": {

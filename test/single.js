@@ -1,9 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
-
 // Test String (Editable)
 var test = '{"test":"\\"double quote\\""}';
 

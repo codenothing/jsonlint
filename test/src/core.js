@@ -1,8 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
 var JSONLint = require('../../jsonlint'),
 	Color = require('./color'),
 	fs = require('fs');

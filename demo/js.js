@@ -1,8 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
 jQuery(function(){
 	var textarea = jQuery('textarea').linedtextarea(),
 		wrapper = jQuery('.linedwrap'),

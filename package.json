@@ -5,7 +5,19 @@
 	"keywords": [ "json", "lint", "comments" ],
 	"author": "Corey Hart <corey@codenothing.com>",
 	"version": "0.1.0",
+	"main": "jsonlint.js",
+	"homepage": "https://github.com/codenothing/jsonlint",
 	"engines": {
-		"node": "*"
+		"node": ">=0.5"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/codenothing/jsonlint.git"
+	},
+	"bugs": {
+		"url": "https://github.com/codenothing/jsonlint/issues"
+	},
+	"scripts": {
+		"test": "make test"
 	}
 }

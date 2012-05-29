@@ -1,10 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- *
- * Spec for invalid json files
- */
 module.exports = {
 	'endofarray.json': {
 		line: 1,

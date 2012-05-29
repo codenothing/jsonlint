@@ -1,8 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
 var sys = require('sys'),
 	Color = module.exports = function( color, bold, str ) {
 		return "\x1B[" + ( bold ? 1 : 0 ) + ";" + Color.colors[ color ] + "m" + str + "\x1B[0m";

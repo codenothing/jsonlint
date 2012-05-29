@@ -1,9 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
-
 // Temporary files to block during rendering
 var block = [
 ];

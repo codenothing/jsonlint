@@ -1,8 +1,3 @@
-#
-# JSONLint [VERSION]
-# [DATE]
-# Corey Hart @ http://www.codenothing.com
-#
 .PHONY: all test clean
 
 all:
