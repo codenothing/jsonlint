@@ -1,8 +1,3 @@
-/**
- * JSONLint [VERSION]
- * [DATE]
- * Corey Hart @ http://www.codenothing.com
- */
 (function( glob, undefined ) {
 
 var rnumber = /[0-9]/,
@@ -15,38 +10,40 @@ var rnumber = /[0-9]/,
 
 // Leeeeeeerrrrroooyy Jennkkkiiinnnss
 function JSONLint( json, options ) {
-	if ( ! ( this instanceof JSONLint ) ) {
+	var self = this;
+
+	if ( ! ( self instanceof JSONLint ) ) {
 		return new JSONLint( json, options );
 	}
 
 	// Argument handling
-	this.json = json || '';
-	this.options = options || {};
-	this.lower = this.json.toLowerCase();
+	self.json = json || '';
+	self.options = options || {};
+	self.lower = self.json.toLowerCase();
 
 	// Allow comments by default
-	if ( ! this.options.hasOwnProperty( 'comments' ) ) {
-		this.options.comments = true;
+	if ( ! self.options.hasOwnProperty( 'comments' ) ) {
+		self.options.comments = true;
 	}
 
 	// Internals
-	this.c = '';
-	this.i = -1;
-	this.length = this.json.length;
-	this.line = 1;
-	this.character = 0;
-	this._evidence = this.json.split( revidence );
-	this.endblock = '';
-	this.commabreak = false;
+	self.c = '';
+	self.i = -1;
+	self.length = self.json.length;
+	self.line = 1;
+	self.character = 0;
+	self._evidence = self.json.split( revidence );
+	self.endblock = '';
+	self.commabreak = false;
 
 	try {
-		this.render();
+		self.render();
 	} catch ( e ) {
 		if ( typeof e != 'string' ) {
 			throw e;
 		}
-		this.error = e;
-		this.setEvidence();
+		self.error = e;
+		self.setEvidence();
 	}
 }
 
@@ -62,42 +59,44 @@ JSONLint.prototype = {
 
 	// Rendering Start
 	render: function(){
-		for ( var peek = '', content = false; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this, peek = '', content = false;
 
-			if ( this.options.comments && this.c == '/' ) {
-				peek = this.json[ this.i + 1 ];
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.options.comments && self.c == '/' ) {
+				peek = self.json[ self.i + 1 ];
 				if ( peek == '*' ) {
-					this.multicomment();
+					self.multicomment();
 				}
 				else if ( peek == '/' ) {
-					this.comment();
+					self.comment();
 				}
 				else {
 					throw "Unknown character '/', maybe a comment?";
 				}
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
-			else if ( rwhitespace.exec( this.c ) ) {
+			else if ( rwhitespace.exec( self.c ) ) {
 				continue;
 			}
 			else if ( content ) {
-				throw "Unknown character '" + this.c + "', expecting end of file.";
+				throw "Unknown character '" + self.c + "', expecting end of file.";
 			}
-			else if ( this.c == '[' ) {
+			else if ( self.c == '[' ) {
 				content = true;
-				this.array();
+				self.array();
 			}
-			else if ( this.c == '{' ) {
+			else if ( self.c == '{' ) {
 				content = true;
-				this.object();
+				self.object();
 			}
 			else {
-				throw "Unknown character '" + this.c + "', expecting opening block '{' or '[', or maybe a comment";
+				throw "Unknown character '" + self.c + "', expecting opening block '{' or '[', or maybe a comment";
 			}
 		}
 
@@ -109,31 +108,35 @@ JSONLint.prototype = {
 
 	// Multi line comment
 	multicomment: function(){
-		for ( ; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this;
 
-			if ( this.c == "*" && this.json[ this.i + 1 ] == "/" ) {
-				this.i++;
-				this.character++;
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.c == "*" && self.json[ self.i + 1 ] == "/" ) {
+				self.i++;
+				self.character++;
 				break;
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
 		}
 	},
 
 	// Single line comment
 	comment: function(){
-		for ( ; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this;
 
-			if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 				break;
 			}
 		}
@@ -142,10 +145,14 @@ JSONLint.prototype = {
 	// Array Block
 	array: function(){
 		// Keep reference of current endblock
-		var _endblock = this.endblock, _commabreak = this.commabreak, ended = false;
-		this.endblock = ']';
-		this.commabreak = false;
-		while ( ( ended = this.value() ) !== true && this.i < this.length ) {
+		var self = this,
+			_endblock = self.endblock,
+			_commabreak = self.commabreak,
+			ended = false;
+
+		self.endblock = ']';
+		self.commabreak = false;
+		while ( ( ended = self.value() ) !== true && self.i < self.length ) {
 			// Do nothing, just wait for array values to finish
 		}
 
@@ -154,57 +161,61 @@ JSONLint.prototype = {
 		}
 
 		// Reset previous endblock
-		this.endblock = _endblock;
-		this.commabreak = _commabreak;
+		self.endblock = _endblock;
+		self.commabreak = _commabreak;
 	},
 
 	// Object Block
 	object: function(){
 		// Keep reference of current endblock
-		var _endblock = this.endblock, _commabreak = this.commabreak, found = false, peek = '', empty = true;
-		this.endblock = '}';
-		this.commabreak = false;
-		for ( ; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this,
+			_endblock = self.endblock,
+			_commabreak = self.commabreak,
+			found = false, peek = '', empty = true;
 
-			if ( this.options.comments && this.c == '/' ) {
-				peek = this.json[ this.i + 1 ];
+		self.endblock = '}';
+		self.commabreak = false;
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.options.comments && self.c == '/' ) {
+				peek = self.json[ self.i + 1 ];
 				if ( peek == '*' ) {
-					this.multicomment();
+					self.multicomment();
 				}
 				else if ( peek == '/' ) {
-					this.comment();
+					self.comment();
 				}
 				else {
 					throw "Unknown character '/', maybe a comment?";
 				}
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
-			else if ( rwhitespace.exec( this.c ) ) {
+			else if ( rwhitespace.exec( self.c ) ) {
 				continue;
 			}
-			else if ( this.c == '"' ) {
+			else if ( self.c == '"' ) {
 				empty = false;
-				if ( this.key() === true ) {
+				if ( self.key() === true ) {
 					// Reset old endblock
-					this.endblock = _endblock;
-					this.commabreak = _commabreak;
+					self.endblock = _endblock;
+					self.commabreak = _commabreak;
 					found = true;
 					break;
 				}
 			}
-			else if ( empty && this.c == '}' ) {
-				this.endblock = _endblock;
-				this.commabreak = _commabreak;
+			else if ( empty && self.c == '}' ) {
+				self.endblock = _endblock;
+				self.commabreak = _commabreak;
 				found = true;
 				break;
 			}
 			else {
-				throw "Unknown Character '" + this.c + "', expecting a string for key statement.";
+				throw "Unknown Character '" + self.c + "', expecting a string for key statement.";
 			}
 		}
 
@@ -215,126 +226,132 @@ JSONLint.prototype = {
 
 	// Key Statement
 	key: function(){
-		this.string();
-		for ( var peek = ''; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this;
+		self.string();
 
-			if ( this.options.comments && this.c == '/' ) {
-				peek = this.json[ this.i + 1 ];
+		for ( var peek = ''; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.options.comments && self.c == '/' ) {
+				peek = self.json[ self.i + 1 ];
 				if ( peek == '*' ) {
-					this.multicomment();
+					self.multicomment();
 				}
 				else if ( peek == '/' ) {
-					this.comment();
+					self.comment();
 				}
 				else {
 					throw "Unknown character '/', maybe a comment?";
 				}
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
-			else if ( rwhitespace.exec( this.c ) ) {
+			else if ( rwhitespace.exec( self.c ) ) {
 				continue;
 			}
-			else if ( this.c == ":" ) {
-				return this.value();
+			else if ( self.c == ":" ) {
+				return self.value();
 			}
 			else {
-				throw "Unknown Character '" + this.c + "', expecting a semicolon.";
+				throw "Unknown Character '" + self.c + "', expecting a semicolon.";
 			}
 		}
 	},
 
 	// Value statement
 	value: function(){
-		for ( var peek = ''; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this, peek = '';
 
-			if ( this.options.comments && this.c == '/' ) {
-				peek = this.json[ this.i + 1 ];
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.options.comments && self.c == '/' ) {
+				peek = self.json[ self.i + 1 ];
 				if ( peek == '*' ) {
-					this.multicomment();
+					self.multicomment();
 				}
 				else if ( peek == '/' ) {
-					this.comment();
+					self.comment();
 				}
 				else {
 					throw "Unknown character '/', maybe a comment?";
 				}
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
-			else if ( rwhitespace.exec( this.c ) ) {
+			else if ( rwhitespace.exec( self.c ) ) {
 				continue;
 			}
-			else if ( this.c == '{' ) {
-				this.object();
-				return this.endval();
+			else if ( self.c == '{' ) {
+				self.object();
+				return self.endval();
 			}
-			else if ( this.c == '[' ) {
-				this.array();
-				return this.endval();
+			else if ( self.c == '[' ) {
+				self.array();
+				return self.endval();
 			}
-			else if ( this.c == '"' ) {
-				this.string();
-				return this.endval();
+			else if ( self.c == '"' ) {
+				self.string();
+				return self.endval();
 			}
-			else if ( this.json.indexOf( 'true', this.i ) === this.i ) {
-				this.i += 3;
-				this.character += 3;
-				return this.endval();
+			else if ( self.json.indexOf( 'true', self.i ) === self.i ) {
+				self.i += 3;
+				self.character += 3;
+				return self.endval();
 			}
-			else if ( this.json.indexOf( 'false', this.i ) === this.i ) {
-				this.i += 4;
-				this.character += 4;
-				return this.endval();
+			else if ( self.json.indexOf( 'false', self.i ) === self.i ) {
+				self.i += 4;
+				self.character += 4;
+				return self.endval();
 			}
-			else if ( this.json.indexOf( 'null', this.i ) === this.i ) {
-				this.i += 3;
-				this.character += 3;
-				return this.endval();
+			else if ( self.json.indexOf( 'null', self.i ) === self.i ) {
+				self.i += 3;
+				self.character += 3;
+				return self.endval();
 			}
-			else if ( this.c == '-' || rnumber.exec( this.c ) ) {
-				return this.numeric();
+			else if ( self.c == '-' || rnumber.exec( self.c ) ) {
+				return self.numeric();
 			}
-			else if ( this.c == ']' && this.endblock == ']' ) {
-				if ( this.commabreak ) {
+			else if ( self.c == ']' && self.endblock == ']' ) {
+				if ( self.commabreak ) {
 					throw "Unexpected End Of Array Error. Expecting a value statement.";
 				}
 				return true;
 			}
 			else {
-				throw "Unknown Character '" + this.c + "', expecting a value.";
+				throw "Unknown Character '" + self.c + "', expecting a value.";
 			}
 		}
 	},
 
 	// String statement
 	string: function(){
-		for ( var found = false, m; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this, found = false, m;
 
-			if ( this.c == "\\" ) {
-				if ( ( m = rvalidsolidus.exec( this.json.substr( this.i ) ) ) && m.index === 0 ) {
-					this.i += m[ 1 ].length;
-					this.character += m[ 1 ].length;
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.c == "\\" ) {
+				if ( ( m = rvalidsolidus.exec( self.json.substr( self.i ) ) ) && m.index === 0 ) {
+					self.i += m[ 1 ].length;
+					self.character += m[ 1 ].length;
 				}
 				else {
 					throw "Invalid Reverse Solidus '\\' declaration.";
 				}
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
-			else if ( this.c == '"' ) {
+			else if ( self.c == '"' ) {
 				found = true;
 				break;
 			}
@@ -348,50 +365,51 @@ JSONLint.prototype = {
 
 	// Numeric Value
 	numeric: function(){
-		var negative = true,
+		var self = this,
+			negative = true,
 			decimal = null,
 			e = null,
 			peek = '';
 
 		// We need to jump back a character to catch the whole number
-		this.i--;
-		this.character--;
-		for ( ; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		self.i--;
+		self.character--;
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
 
 			// Handle initial negative sign
 			if ( negative ) {
 				negative = false;
-				if ( this.c == '-' ) {
-					if ( ! rnumber.exec( this.json[ this.i + 1 ] ) ) {
-						throw "Unknown Character '" + this.c + "' following a negative, expecting a numeric value.";
+				if ( self.c == '-' ) {
+					if ( ! rnumber.exec( self.json[ self.i + 1 ] ) ) {
+						throw "Unknown Character '" + self.c + "' following a negative, expecting a numeric value.";
 					}
 					continue;
 				}
 			}
 
 			// Only a single decimal is allowed in a numeric value
-			if ( decimal && this.c == '.' ) {
+			if ( decimal && self.c == '.' ) {
 				decimal = false;
 				e = true;
 				continue;
 			}
 			// Only a single e notation is allowed in a numeric value
-			else if ( e && this.c.toLowerCase() == 'e' ) {
+			else if ( e && self.c.toLowerCase() == 'e' ) {
 				e = false;
 				negative = true;
-				if ( rE.exec( this.json.substr( this.i + 1, 2 ) ) ) {
-					this.character++;
-					this.i++;
+				if ( rE.exec( self.json.substr( self.i + 1, 2 ) ) ) {
+					self.character++;
+					self.i++;
 				}
 				else {
-					this.character++;
-					throw "Unknown Character '" + this.json[ this.i + 1 ] + "' following e notation, expecting a numeric value.";
+					self.character++;
+					throw "Unknown Character '" + self.json[ self.i + 1 ] + "' following e notation, expecting a numeric value.";
 				}
 			}
 			// Normal Digit
-			else if ( rnumber.exec( this.c ) ) {
+			else if ( rnumber.exec( self.c ) ) {
 				if ( decimal === null ) {
 					decimal = true;
 				}
@@ -399,55 +417,57 @@ JSONLint.prototype = {
 			// Assume end of number, and allow endval to handle it
 			else {
 				// Jump back a character to include the current one
-				this.i--;
-				this.character--;
-				return this.endval();
+				self.i--;
+				self.character--;
+				return self.endval();
 			}
 		}
 	},
 
 	// Ending a value statement
 	endval: function(){
-		this.commabreak = false;
-		for ( var peek = ''; ++this.i < this.length; ) {
-			this.c = this.json[ this.i ];
-			this.character++;
+		var self = this, peek = '';
+		self.commabreak = false;
 
-			if ( this.options.comments && this.c == '/' ) {
-				peek = this.json[ this.i + 1 ];
+		for ( ; ++self.i < self.length; ) {
+			self.c = self.json[ self.i ];
+			self.character++;
+
+			if ( self.options.comments && self.c == '/' ) {
+				peek = self.json[ self.i + 1 ];
 				if ( peek == '*' ) {
-					this.multicomment();
+					self.multicomment();
 				}
 				else if ( peek == '/' ) {
-					this.comment();
+					self.comment();
 				}
 				else {
 					throw "Unknown character '/', maybe a comment?";
 				}
 			}
-			else if ( rnewline.exec( this.c ) ) {
-				this.line++;
-				this.character = 0;
+			else if ( rnewline.exec( self.c ) ) {
+				self.line++;
+				self.character = 0;
 			}
-			else if ( rwhitespace.exec( this.c ) ) {
+			else if ( rwhitespace.exec( self.c ) ) {
 				continue;
 			}
-			else if ( this.c == ',' ) {
-				this.commabreak = true;
+			else if ( self.c == ',' ) {
+				self.commabreak = true;
 				break;
 			}
-			else if ( this.c == this.endblock ) {
+			else if ( self.c == self.endblock ) {
 				return true;
 			}
 			else {
-				throw "Unknown Character '" + this.c + "', expecting a comma or a closing '" + this.endblock + "'";
+				throw "Unknown Character '" + self.c + "', expecting a comma or a closing '" + self.endblock + "'";
 			}
 		}
 	},
 
 	// Expose line of the error
 	setEvidence: function(){
-		var start = this.line - 5, end = start + 8, evidence = '';
+		var self = this, start = self.line - 5, end = start + 8, evidence = '';
 
 		// Min start
 		if ( start < 0 ) {
@@ -456,49 +476,25 @@ JSONLint.prototype = {
 		}
 
 		// Max end
-		if ( end >= this._evidence.length ) {
-			end = this._evidence.length;
+		if ( end >= self._evidence.length ) {
+			end = self._evidence.length;
 		}
 
 		// Evidence display
 		for ( ; start < end; start++ ) {
-			evidence += ( start === ( this.line - 1 ) ? "-> " : "   " ) +
+			evidence += ( start === ( self.line - 1 ) ? "-> " : "   " ) +
 				( start + 1 ) + '| ' +
-				this._evidence[ start ] + "\n";
+				self._evidence[ start ] + "\n";
 		}
 
 		// Set the evidence display
-		this.evidence = evidence;
+		self.evidence = evidence;
 	}
 };
 
 
-// Expose to Nodelint system if possible
-if ( typeof Nodelint != 'undefined' ) {
-	Nodelint.Linters.add({
-
-		// Config
-		name: 'jsonlint',
-		display: 'JSONLint',
-		linter: JSONLint,
-		build: __filename,
-		match: /\.json$/i,
-
-		// Meta
-		version: JSONLint.version,
-		date: JSONLint.date,
-		contact: JSONLint.contact
-
-	}, function( JSONLint, file, content, options ) {
-		// Run JSON file through linter
-		var result = JSONLint( content, options );
-
-		// JSONLint only stops on every error, so create a single entry array from it
-		return result.error ? [ result ] : [];
-	});
-}
 // Check for nodejs module system
-else if ( typeof exports == 'object' && typeof module == 'object' ) {
+if ( typeof exports == 'object' && typeof module == 'object' ) {
 	module.exports = JSONLint;
 }
 // In a browser
