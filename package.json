@@ -1,0 +1,11 @@
+{
+	"name": "json-lint",
+	"description": "JSON Lint with comments",
+	"url": "https://github.com/codenothing/jsonlint",
+	"keywords": [ "json", "lint", "comments" ],
+	"author": "Corey Hart <corey@codenothing.com>",
+	"version": "0.1.0",
+	"engines": {
+		"node": "*"
+	}
+}
