@@ -2,19 +2,21 @@ JSONLint is a JSON Linter that allows for comments in your JSON Files.
 
 Usage
 -----
-	// JSONLint is exposed to the window object in a browser,
-	// but if in a nodejs enviorment
-	var JSONLint = require('/path/to/jsonlint.js');
+```js
+// JSONLint is exposed to the window object in a browser,
+// but if in a nodejs enviorment
+var JSONLint = require('/path/to/jsonlint.js');
 
-	// Run the JSON string through the linter
-	var lint = JSONLint( json, options );
-		
-	// Do something with the error
-	if ( lint.error ) {
-		lint.error // Error Message
-		lint.line; // Line number in json file where error was found
-		lint.character; // Character of line in json file where error was found
-	}
+// Run the JSON string through the linter
+var lint = JSONLint( json, options );
+	
+// Do something with the error
+if ( lint.error ) {
+	lint.error // Error Message
+	lint.line; // Line number in json file where error was found
+	lint.character; // Character of line in json file where error was found
+}
+```
 
 JSONLint takes two arguments, and throws an error if found.
 
