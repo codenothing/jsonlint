@@ -1,4 +1,4 @@
-var sys = require('sys'),
+var util = require('util'),
 	Color = module.exports = function( color, bold, str ) {
 		return "\x1B[" + ( bold ? 1 : 0 ) + ";" + Color.colors[ color ] + "m" + str + "\x1B[0m";
 	};
@@ -34,11 +34,11 @@ Color.puts = { bold: {} };
 
 	// Auto output of normal color
 	Color.puts[ color ] = function( msg ) {
-		return sys.puts( Color( color, false, msg ) );
+		return util.puts( Color( color, false, msg ) );
 	};
 
 	// Auto output of bold color
 	Color.puts.bold[ color ] = function( msg ) {
-		return sys.puts( Color( color, true, msg ) );
+		return util.puts( Color( color, true, msg ) );
 	};
 });
