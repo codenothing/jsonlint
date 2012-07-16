@@ -4,8 +4,8 @@
 	"url": "https://github.com/codenothing/jsonlint",
 	"keywords": [ "json", "lint", "comments" ],
 	"author": "Corey Hart <corey@codenothing.com>",
-	"version": "0.1.0",
-	"main": "jsonlint.js",
+	"version": "0.1.1",
+	"main": "./jsonlint.js",
 	"homepage": "https://github.com/codenothing/jsonlint",
 	"engines": {
 		"node": ">=0.5"
@@ -19,5 +19,9 @@
 	},
 	"scripts": {
 		"test": "make test"
+	},
+	"devDependencies": {
+		"nlint": "0.0.2",
+		"munit": "0.0.1"
 	}
 }

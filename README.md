@@ -1,11 +1,26 @@
 JSONLint is a JSON Linter that allows for comments in your JSON Files.
 
+
+Installation
+------------
+
+For use with nodejs, use npm
+
+```bash
+$ npm install -g json-lint
+```
+
+For use in browser environments, include the script tag
+
+```html
+<script type='text/javascript' src='jsonlint.js'></script>
+```
+
 Usage
 -----
 ```js
-// JSONLint is exposed to the window object in a browser,
-// but if in a nodejs enviorment
-var JSONLint = require('/path/to/jsonlint.js');
+// Require it for nodejs environment
+var JSONLint = require( 'json-lint' );
 
 // Run the JSON string through the linter
 var lint = JSONLint( json, options );

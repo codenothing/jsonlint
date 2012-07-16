@@ -1,4 +1,4 @@
-module.exports = {
+var tests = {
 	// JSON cannot be empty
 	"Empty Test": {
 		json: "",
@@ -198,3 +198,17 @@ module.exports = {
 		line: 1
 	}
 };
+
+MUnit( 'Inavlid', Object.keys( tests ).count * 2, function( assert ) {
+	MUnit.each( tests, function( object, name ) {
+		var lint = JSONLint( object.json, object.options );
+
+		if ( ! lint.error ) {
+			assert.fail( name );
+		}
+		else {
+			assert.equal( name + '-line', lint.line, object.line );
+			assert.equal( name + '-character', lint.character, object.character );
+		}
+	});
+});

@@ -1,0 +1,9 @@
+{
+	"ignore": [
+		".git/",
+		"node_modules/",
+		"bin/",
+		"demo/jquery-linedtextarea.js",
+		"demo/jquery-1.4.2.js"
+	]
+}

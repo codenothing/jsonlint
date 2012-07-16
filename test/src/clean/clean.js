@@ -1,4 +1,4 @@
-module.exports = [
+var tests = [
 	// Empties
 	"[]",
 	"{}",
@@ -62,3 +62,11 @@ module.exports = [
 	// Multi Object
 	"{ \"test\": null, \"ing\": true, \"a\": false, \"b\": -101.101e-101 }"
 ];
+
+MUnit( 'Clean', tests.length, function( assert ) {
+	tests.forEach(function( test, index ) {
+		var lint = JSONLint( test );
+
+		assert.ok( index, ! lint.error );
+	});
+});
