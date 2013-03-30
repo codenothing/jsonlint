@@ -199,8 +199,8 @@ var tests = {
 	}
 };
 
-MUnit( 'Inavlid', Object.keys( tests ).count * 2, function( assert ) {
-	MUnit.each( tests, function( object, name ) {
+munit( 'Inavlid', Object.keys( tests ).count * 2, function( assert ) {
+	munit.each( tests, function( object, name ) {
 		var lint = JSONLint( object.json, object.options );
 
 		if ( ! lint.error ) {

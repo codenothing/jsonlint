@@ -63,10 +63,10 @@ var tests = [
 	"{ \"test\": null, \"ing\": true, \"a\": false, \"b\": -101.101e-101 }"
 ];
 
-MUnit( 'Clean', tests.length, function( assert ) {
+munit( 'Clean', tests.length, function( assert ) {
 	tests.forEach(function( test, index ) {
 		var lint = JSONLint( test );
 
-		assert.ok( index, ! lint.error );
+		assert.ok( index + '', ! lint.error );
 	});
 });

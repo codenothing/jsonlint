@@ -1,4 +1,4 @@
-global.MUnit = require( 'munit' );
+global.munit = require( 'munit' );
 global.JSONLint = require( '../jsonlint.js' );
 
-MUnit.render( __dirname + '/../test/' );
+munit.render( __dirname + '/../test/', { junit: __dirname + '/results/' } );
