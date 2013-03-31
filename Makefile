@@ -7,4 +7,4 @@ test: lint
 	@node build/test.js
 
 lint:
-	@nlint .
+	@node build/lint.js
