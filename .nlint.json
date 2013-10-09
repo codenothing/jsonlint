@@ -5,5 +5,12 @@
 		"bin/",
 		"demo/jquery-linedtextarea.js",
 		"demo/jquery-1.4.2.js"
-	]
+	],
+	"linters": {
+		"jshint": {
+			"boss": true,
+			"node": true,
+			"undef": true
+		}
+	}
 }

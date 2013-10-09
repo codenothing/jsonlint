@@ -1,0 +1,11 @@
+{
+	"linters": {
+		"jshint": {
+			"node": false,
+			"browser": true,
+			"predef": {
+				"jQuery": false
+			}
+		}
+	}
+}

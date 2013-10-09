@@ -82,7 +82,7 @@ tests.forEach(function( test ) {
 	expect += test.error ? 2 : 1;
 });
 
-munit( 'Files', expect, function( assert ) {
+munit( 'Files', { expect: expect, timeout: 3000 }, function( assert ) {
 	tests.forEach(function( test ) {
 		fs.readFile( __dirname + '/json/' + test.file, 'utf-8', function( e, contents ) {
 			if ( e ) {

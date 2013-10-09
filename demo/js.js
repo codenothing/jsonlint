@@ -8,7 +8,7 @@ jQuery(function(){
 	jQuery('button').click(function(){
 		wrapper.removeClass('error').removeClass('success');
 		results.removeClass('error').removeClass('success');
-		lint = JSONLint( textarea.val(), { comments: comments.checked } );
+		lint = window.JSONLint( textarea.val(), { comments: comments.checked } );
 
 		if ( ! lint.error ) {
 			wrapper.addClass('success');
