@@ -2,7 +2,8 @@
 
 JSONLint is a JSON Linter that allows for comments in your JSON Files.
   
-[![Build Status](https://travis-ci.org/codenothing/jsonlint.png?branch=master)](https://travis-ci.org/codenothing/jsonlint)  
+[![Build Status](https://travis-ci.org/codenothing/jsonlint.png?branch=master)](https://travis-ci.org/codenothing/jsonlint)
+[![Code Climate](https://codeclimate.com/github/codenothing/jsonlint.png)](https://codeclimate.com/github/codenothing/jsonlint)
   
 Installation
 ------------
