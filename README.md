@@ -2,6 +2,7 @@
 
 JSONLint is a JSON Linter that allows for comments in your JSON Files.
   
+[![NPM version](https://badge.fury.io/js/json-lint.png)](http://badge.fury.io/js/json-lint)
 [![Build Status](https://travis-ci.org/codenothing/jsonlint.png?branch=master)](https://travis-ci.org/codenothing/jsonlint)
 [![Code Climate](https://codeclimate.com/github/codenothing/jsonlint.png)](https://codeclimate.com/github/codenothing/jsonlint)
   
