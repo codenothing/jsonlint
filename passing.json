@@ -1,0 +1,554 @@
+{
+    "node_version": "v0.10.33",
+    "munit_version": "0.0.7",
+    "passed": 126,
+    "failed": 0,
+    "skipped": 0,
+    "start": 1417552060490,
+    "end": 1417552060509,
+    "ns": {
+        "Clean": {
+            "name": "Clean",
+            "nsPath": "Clean",
+            "count": 46,
+            "passed": 46,
+            "failed": 0,
+            "skipped": 0,
+            "start": 1417552060497,
+            "end": 1417552060500,
+            "time": 3,
+            "tests": [{
+                "name": "0",
+                "nsPath": "Clean",
+                "time": 1
+            }, {
+                "name": "1",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "2",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "3",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "4",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "5",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "6",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "7",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "8",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "9",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "10",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "11",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "12",
+                "nsPath": "Clean",
+                "time": 1
+            }, {
+                "name": "13",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "14",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "15",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "16",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "17",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "18",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "19",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "20",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "21",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "22",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "23",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "24",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "25",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "26",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "27",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "28",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "29",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "30",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "31",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "32",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "33",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "34",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "35",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "36",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "37",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "38",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "39",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "40",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "41",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "42",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "43",
+                "nsPath": "Clean",
+                "time": 0
+            }, {
+                "name": "44",
+                "nsPath": "Clean",
+                "time": 1
+            }, {
+                "name": "45",
+                "nsPath": "Clean",
+                "time": 0
+            }],
+            "ns": {}
+        },
+        "Inavlid": {
+            "name": "Inavlid",
+            "nsPath": "Inavlid",
+            "count": 62,
+            "passed": 62,
+            "failed": 0,
+            "skipped": 0,
+            "start": 1417552060502,
+            "end": 1417552060503,
+            "time": 1,
+            "tests": [{
+                "name": "Empty Test-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Empty Test-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Multi Object-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Multi Object-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Capital NULL-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Capital NULL-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Capital TRUE-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Capital TRUE-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Capital FALSE-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Capital FALSE-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "+1-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "+1-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Double Decimal-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Double Decimal-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Non Decimal E-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Non Decimal E-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad E-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad E-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Double E-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Double E-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Double E negative-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Double E negative-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "E decimal-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "E decimal-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Close Quote-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Close Quote-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Close Quote with spacing-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Close Quote with spacing-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "No Close Quote-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "No Close Quote-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Invalid Reverse Solidus-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Invalid Reverse Solidus-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Invalid Reverse Solidus \\u short-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Invalid Reverse Solidus \\u short-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Closing Array-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Closing Array-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Closing Object-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "Bad Closing Object-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "No Comma Array-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "No Comma Array-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "No Comma Object-line",
+                "nsPath": "Inavlid",
+                "time": 1
+            }, {
+                "name": "No Comma Object-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "End of Array Error-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "End of Array Error-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "End of Object Error-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "End of Object Error-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Nothing-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Nothing-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Comma-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Comma-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Space-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Space-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Array-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Object Array-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array Nothing-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array Nothing-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array Space-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array Space-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array Comma-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array Comma-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array object-line",
+                "nsPath": "Inavlid",
+                "time": 0
+            }, {
+                "name": "EOF Array object-character",
+                "nsPath": "Inavlid",
+                "time": 0
+            }],
+            "ns": {}
+        },
+        "Files": {
+            "name": "Files",
+            "nsPath": "Files",
+            "count": 18,
+            "passed": 18,
+            "failed": 0,
+            "skipped": 0,
+            "start": 1417552060504,
+            "end": 1417552060508,
+            "time": 4,
+            "tests": [{
+                "name": "Numeric.json",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "comments.json",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "nested.json",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "multi-comment.json",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "pit.json",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "endofarray.json-line",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "endofarray.json-character",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "strings.json",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "empty.json-line",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "empty.json-character",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "nocomments.json-line",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "nocomments.json-character",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "nomulticomment.json-line",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "nomulticomment.json-character",
+                "nsPath": "Files",
+                "time": 3
+            }, {
+                "name": "string.json-line",
+                "nsPath": "Files",
+                "time": 4
+            }, {
+                "name": "string.json-character",
+                "nsPath": "Files",
+                "time": 4
+            }, {
+                "name": "multi-object.json-line",
+                "nsPath": "Files",
+                "time": 4
+            }, {
+                "name": "multi-object.json-character",
+                "nsPath": "Files",
+                "time": 4
+            }],
+            "ns": {}
+        }
+    }
+}
