@@ -32,6 +32,8 @@ var tests = [
 	"{\"test\":\"s p a c	i	n	g	\"}",
 	"{\"test\":\"'single quote'\"}",
 	"{\"test\":\"\\\"double quote\\\"\"}",
+	"{\"test\":\"unicode values \\u1234\"}",
+	"{\"test\":\"unicode values \\u00a9\"}",
 
 	// Valid Reverse solidus in strings
 	"[\"\\\"\"]",
@@ -43,6 +45,7 @@ var tests = [
 	"[\"\\r\"]",
 	"[\"\\t\"]",
 	"[\"\\u1234\"]",
+	"[\"\\u00a9\"]",
 
 	// Array Value
 	"{\"test\": [ true ] }",

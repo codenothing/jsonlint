@@ -4,7 +4,7 @@ var rnumber = /[0-9]/,
 	rnewline = /(\r\n|\r|\n)/,
 	revidence = /\r\n|\r|\n/,
 	rwhitespace = /(\s|\t)/,
-	rvalidsolidus = /\\("|\\|\/|b|f|n|r|t|u[0-9]{4})/,
+	rvalidsolidus = /\\("|\\|\/|b|f|n|r|t|u[0-9A-Za-z]{4})/,
 	rE = /^(\-|\+)?[0-9]/;
 
 
@@ -50,7 +50,7 @@ function JSONLint( json, options ) {
 
 // Meta (Please change contact info for republishing with changes)
 JSONLint.contact = "Corey Hart (corey@codenothing.com)";
-JSONLint.version = '0.1.1';
+JSONLint.version = '0.1.2';
 
 
 // Methods

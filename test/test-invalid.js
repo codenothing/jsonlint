@@ -95,26 +95,6 @@ var tests = {
 		character: 4,
 		line: 1
 	},
-	"Invalid Reverse Solidus \\u 1": {
-		json: "[ \"\\ua234\" ]",
-		character: 4,
-		line: 1
-	},
-	"Invalid Reverse Solidus \\u 2": {
-		json: "[ \"\\u1b34\" ]",
-		character: 4,
-		line: 1
-	},
-	"Invalid Reverse Solidus \\u 3": {
-		json: "[ \"\\u12c4\" ]",
-		character: 4,
-		line: 1
-	},
-	"Invalid Reverse Solidus \\u 4": {
-		json: "[ \"\\u123d\" ]",
-		character: 4,
-		line: 1
-	},
 
 	// Invalid Brace Notations
 	"Bad Closing Array": {

@@ -4,7 +4,7 @@
 	"url": "https://github.com/codenothing/jsonlint",
 	"keywords": [ "json", "lint", "comments" ],
 	"author": "Corey Hart <corey@codenothing.com>",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"main": "./jsonlint.js",
 	"homepage": "https://github.com/codenothing/jsonlint",
 	"engines": {
