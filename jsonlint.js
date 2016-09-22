@@ -95,7 +95,7 @@ JSONLint.prototype = {
 				self.object();
 			}
 			else {
-				throw "Unknown character '" + self.c + "', expecting opening block '{' or '[', or maybe a comment";
+				throw "Unknown character '" + self.c + "', expecting opening block '{' or '['" + (self.options.comments ? ", or maybe a comment" : "");
 			}
 		}
 
