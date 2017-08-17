@@ -255,7 +255,7 @@ JSONLint.prototype = {
 				return self.value();
 			}
 			else {
-				throw "Unknown Character '" + self.c + "', expecting a semicolon.";
+				throw "Unknown Character '" + self.c + "', expecting a colon.";
 			}
 		}
 	},
