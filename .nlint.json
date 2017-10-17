@@ -4,7 +4,7 @@
 		"node_modules/",
 		"bin/",
 		"demo/jquery-linedtextarea.js",
-		"demo/jquery-1.4.2.js"
+		"demo/jquery-3.2.1.js"
 	],
 	"linters": {
 		"jshint": {
