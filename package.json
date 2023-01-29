@@ -1,27 +1,39 @@
 {
-	"name": "json-lint",
-	"description": "JSON Lint with comments",
-	"url": "https://github.com/codenothing/jsonlint",
-	"keywords": [ "json", "lint", "comments" ],
-	"author": "Corey Hart <corey@codenothing.com>",
-	"version": "0.1.1",
-	"main": "./jsonlint.js",
-	"homepage": "https://github.com/codenothing/jsonlint",
-	"engines": {
-		"node": ">=0.5"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/codenothing/jsonlint.git"
-	},
-	"bugs": {
-		"url": "https://github.com/codenothing/jsonlint/issues"
-	},
-	"scripts": {
-		"test": "make test"
-	},
-	"devDependencies": {
-		"nlint": "0.0.7",
-		"munit": "0.0.8"
-	}
+  "name": "json-lint",
+  "description": "JSON Lint with comments",
+  "url": "https://github.com/codenothing/jsonlint",
+  "author": "Corey Hart <corey@codenothing.com>",
+  "version": "0.1.1",
+  "main": "./jsonlint.js",
+  "homepage": "https://github.com/codenothing/jsonlint",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/codenothing/jsonlint.git"
+  },
+  "keywords": [
+    "json",
+    "lint",
+    "comments"
+  ],
+  "files": [
+    "jsonlint.js",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=0.5"
+  },
+  "bugs": {
+    "url": "https://github.com/codenothing/jsonlint/issues"
+  },
+  "scripts": {
+    "clean": "rm -rf build/results/",
+    "lint": "node build/lint.js",
+    "test": "npm run clean && npm run lint && node build/test.js"
+  },
+  "devDependencies": {
+    "nlint": "0.0.7",
+    "munit": "0.0.8"
+  }
 }
