@@ -33,7 +33,7 @@
     "test": "npm run clean && npm run lint && node build/test.js"
   },
   "devDependencies": {
-    "nlint": "0.0.7",
+    "nlint": "0.0.8",
     "munit": "0.0.8"
   }
 }
